@@ -1,0 +1,115 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50; }
+
+.header {
+  padding: 6rem 0;
+  text-align: center; }
+  .header .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 2rem; }
+  .header .heading-primary--sub {
+    display: block;
+    font-size: 3rem;
+    letter-spacing: 1.05rem;
+    margin-left: -.5rem;
+    font-weight: 200; }
+
+.game {
+  width: 50%;
+  margin: 0 auto; }
+  .game__scores {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem; }
+    .game__scores .actor {
+      width: 100%;
+      margin: 3rem;
+      font-size: 4rem;
+      text-align: center;
+      color: #333;
+      background-color: #eee; }
+      .game__scores .actor__label {
+        background-color: #fff; }
+      .game__scores .actor__life {
+        background-color: #8080f5;
+        padding: 2rem;
+        width: 100%;
+        transition: all .2s; }
+  .game__actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem; }
+
+.btn {
+  background-color: orangered;
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 3px;
+  outline: none; }
+  .btn--animated {
+    transition: all .2s; }
+    .btn--animated:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem #888; }
+    .btn--animated:active {
+      transform: translateY(-1px);
+      box-shadow: 0 .5rem 1rem #888; }
+  .btn--primary {
+    background-color: #2f7caf;
+    color: #eee; }
+  .btn--accent {
+    background-color: #dc2ee2;
+    color: #eee; }
+  .btn--warning {
+    background-color: #df7015;
+    color: #eee; }
+  .btn--danger {
+    background-color: orangered;
+    color: #eee; }
+
+.game-status {
+  margin: 0 auto;
+  z-index: 1;
+  background-color: #eee;
+  font-size: 6rem;
+  text-align: center;
+  padding: 8rem 24rem;
+  border-radius: 5px;
+  border: 1px solid #333;
+  box-shadow: 0 2rem 4rem #666;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.log {
+  background-color: #eee;
+  width: 40%;
+  margin: 0 auto;
+  color: #333;
+  font-size: 2rem; }
+  .log__message {
+    margin-bottom: .5rem;
+    padding: 1rem; }
+  .log--Human {
+    background-color: #dfc0c0; }
+  .log--Monster {
+    background-color: #b5b5d3; }

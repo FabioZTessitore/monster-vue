@@ -1,6 +1,8 @@
 <template>
     <div class="log">
-        <div class="message" :key="message.id" :class="message.who" v-for="message in logger.messages.slice(0, 10)">
+        <div class="log__message" v-for="message in recentMessages"
+            :key="message.id"
+            :class="'log--' + message.who">
             {{message.who }} {{ message.message }}
         </div>
     </div>
@@ -8,29 +10,12 @@
 
 <script>
 export default {
-    props: [ 'logger' ]
+    props: [ 'logger' ],
+
+    computed: {
+        recentMessages () {
+            return this.logger.messages.slice(0, 10)
+        }
+    }
 }
 </script>
-
-<style scoped>
-.log {
-    background-color: #eee);
-    width: 50%;
-    margin: 0 auto;
-    color: #333;
-    font-size: 2rem;
-}
-
-.message {
-    margin-bottom: .5rem;
-    padding: 1rem;
-}
-
-.Human {
-    background-color: #dfc0c0;
-}
-
-.Monster {
-    background-color: rgb(181, 181, 211);
-}
-</style>
