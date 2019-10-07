@@ -12,6 +12,7 @@
     position: relative;
     width: 100%;
     height: 20vh;
+    margin-bottom: 3rem;
 }
 
 .heading-primary {
@@ -24,14 +25,14 @@
 .heading-primary--main {
     display: block;
     font-size: 6rem;
-    font-weight: 100;
+    font-weight: 400;
     letter-spacing: 2rem;
 }
 
 .heading-primary--sub {
     display: block;
     font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: .82rem;
+    font-weight: 400;
+    letter-spacing: .93rem;
 }
 </style>
