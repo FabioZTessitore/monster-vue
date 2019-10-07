@@ -1,35 +1,49 @@
 <template>
     <div class="game">
-        Game is running: {{ isRunning }}
+        <div class="actors">
+            {{ human.life }} - {{ monster.life }}
+        </div>
 
-        <div class="test">
-            <button @click="decrease">Decrease life</button>
-            <p>Human Life: {{ human.life }}</p>
+        <div class="actions" v-if="!game.isRunning">
+            <button @click="startGame">Start Game</button>
+        </div>
+        
+        <div class="actions" v-else>
+            <button @click="attack">Attack</button>
+            <button @click="specialAttack">Special Attack</button>
+            <button @click="heal">Heal</button>
+            <button @click="giveUp">Give Up</button>
         </div>
     </div>
 </template>
 
 <script>
-import Human from '../models/Human'
-
 export default {
-    data: function () {
-        return {
-            isRunning: false,
-            human: new Human(100)
-        }
-    },
+    props: [ 'game', 'human', 'monster' ],
 
     methods: {
-        decrease () {
-            this.human.decreaseLife()
+        startGame () {
+            this.$emit('start-game')
+        },
+
+        giveUp () {
+            this.$emit('give-up')
+        },
+
+        attack () {
+            this.$emit('attack')
+        },
+
+        specialAttack () {
+            this.$emit('special-attack')
+        },
+
+        heal () {
+            this.$emit('heal')
         }
     }
 }
 </script>
 
 <style scoped>
-.test {
-    font-size: 2rem;
-}
 </style>
