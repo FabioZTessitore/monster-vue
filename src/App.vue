@@ -13,6 +13,11 @@
       @heal="heal">
     </app-game>
 
+    <app-game-status v-if="game.status !== ''"
+      :status="game.status"
+      @close="closeStatus">
+    </app-game-status>
+
     <app-log
       :logger="log">
     </app-log>
@@ -23,6 +28,7 @@
 import HeaderComponent from './components/Header.vue'
 import GameComponent from './components/Game.vue'
 import LogComponent from './components/Log'
+import GameStatus from  './components/GameStatus'
 
 import Actor from './models/Actor'
 import Logger from './models/Log'
@@ -48,7 +54,7 @@ export default {
 
     attack () {
       this.monster.normalAttack()
-      this.checkWin()
+      if (this.checkWin()) return
 
       this.human.normalAttack()
       this.checkLost()
@@ -56,7 +62,7 @@ export default {
 
     specialAttack () {
       this.monster.specialAttack()
-      this.checkWin()
+      if (this.checkWin()) return
 
       this.human.specialAttack()
       this.checkLost()
@@ -77,7 +83,7 @@ export default {
       if (this.monster.life <= 0) {
         this.game.win()
         this.game.stop()
-        return
+        return true
       }
     },
 
@@ -85,15 +91,20 @@ export default {
       if (this.human.life <= 0) {
         this.game.lost()
         this.game.stop()
-        return
+        return true
       }
+    },
+
+    closeStatus () {
+      this.game.status = ''
     }
   },
 
   components: {
     appHeader: HeaderComponent,
     appGame: GameComponent,
-    appLog: LogComponent
+    appLog: LogComponent,
+    appGameStatus: GameStatus
   },
 
   created () {

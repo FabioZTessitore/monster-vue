@@ -17,18 +17,18 @@ class Actor {
 
     specialAttack () {
         const damage = this.attack(this.minAttack*this.specialFactor, this.maxAttack*this.specialFactor)
-        this.logger.log('hit by special attack with damage ' + damage, this.name)
+        this.logger.log('has hit by special attack with damage ' + damage, this.name)
     }
 
     normalAttack () {
         const damage = this.attack(this.minAttack, this.maxAttack)
-        this.logger.log('hit with damage ' + damage, this.name)
+        this.logger.log('has hit with damage ' + damage, this.name)
     }
 
     heal () {
         this.life += 10
         if (this.life > this.config.life) this.life = this.config.life
-        this.logger.log('heal', this.name)
+        this.logger.log('has healed', this.name)
     }
 
     reset () {
