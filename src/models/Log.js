@@ -4,10 +4,11 @@ class Log {
         this.nextId = 1
     }
 
-    log (message) {
-        this.messages.push({
+    log (message, who) {
+        this.messages.unshift({
             id: this.nextId,
-            message
+            message,
+            who
         })
         this.nextId++
     }

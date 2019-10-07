@@ -1,31 +1,34 @@
 class Actor {
-    constructor (config, logger) {
+    constructor (name, config, logger) {
         // backup the initial data
         this.config = config
 
+        this.name = name
         this.logger = logger
 
         this.reset()
     }
 
-    attack (min, max, who) {
+    attack (min, max) {
         const damage = Math.floor(min + Math.random() * (max - min))
         this.life -= damage
-        this.logger.log(who + ' hit with damage ' + damage)
+        return damage
     }
 
-    specialAttack (who) {
-        this.attack(this.minAttack*this.specialFactor, this.maxAttack*this.specialFactor, who)
+    specialAttack () {
+        const damage = this.attack(this.minAttack*this.specialFactor, this.maxAttack*this.specialFactor)
+        this.logger.log('hit by special attack with damage ' + damage, this.name)
     }
 
-    normalAttack (who) {
-        this.attack(this.minAttack, this.maxAttack, who)
+    normalAttack () {
+        const damage = this.attack(this.minAttack, this.maxAttack)
+        this.logger.log('hit with damage ' + damage, this.name)
     }
 
     heal () {
         this.life += 10
         if (this.life > this.config.life) this.life = this.config.life
-        this.logger.log('human heal')
+        this.logger.log('heal', this.name)
     }
 
     reset () {

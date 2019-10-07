@@ -47,18 +47,18 @@ export default {
     },
 
     attack () {
-      this.monster.normalAttack('monster')
-      this.human.normalAttack('human')
+      this.monster.normalAttack()
+      this.human.normalAttack()
     },
 
     specialAttack () {
-      this.monster.specialAttack('monster')
-      this.human.specialAttack('human')
+      this.monster.specialAttack()
+      this.human.specialAttack()
     },
 
     heal () {
       this.human.heal()
-      this.human.normalAttack('human')
+      this.human.normalAttack()
     },
 
     giveUp () {
@@ -75,13 +75,13 @@ export default {
   created () {
     this.game = new Game()
     this.log = new Logger()
-    this.human = new Actor({
+    this.human = new Actor('Human', {
       life: 100,
       minAttack: 5,
       maxAttack: 10,
       specialFactor: 1.5
     }, this.log)
-    this.monster = new Actor({
+    this.monster = new Actor('Monster', {
       life: 100,
       minAttack: 5,
       maxAttack: 10,
