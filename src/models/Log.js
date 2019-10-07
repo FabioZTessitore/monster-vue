@@ -6,11 +6,14 @@ class Log {
 
     log (message, who) {
         this.messages.unshift({
-            id: this.nextId,
+            id: this.getNextId(),
             message,
             who
         })
-        this.nextId++
+    }
+
+    getNextId () {
+        return this.nextId++;
     }
 
     reset () {

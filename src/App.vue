@@ -48,21 +48,45 @@ export default {
 
     attack () {
       this.monster.normalAttack()
+      this.checkWin()
+
       this.human.normalAttack()
+      this.checkLost()
     },
 
     specialAttack () {
       this.monster.specialAttack()
+      this.checkWin()
+
       this.human.specialAttack()
+      this.checkLost()
     },
 
     heal () {
       this.human.heal()
       this.human.normalAttack()
+      this.checkLost()
     },
 
     giveUp () {
+      this.game.giveup()
       this.game.stop()
+    },
+
+    checkWin () {
+      if (this.monster.life <= 0) {
+        this.game.win()
+        this.game.stop()
+        return
+      }
+    },
+
+    checkLost () {
+      if (this.human.life <= 0) {
+        this.game.lost()
+        this.game.stop()
+        return
+      }
     }
   },
 
