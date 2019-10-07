@@ -13,7 +13,9 @@
       @heal="heal">
     </app-game>
 
-    <app-log></app-log>
+    <app-log
+      :logger="log">
+    </app-log>
   </div>
 </template>
 
@@ -29,20 +31,10 @@ import Game from './models/Game'
 export default {
   data () {
     return {
-      game: new Game(),
-      human: new Actor({
-        life: 100,
-        minAttack: 5,
-        maxAttack: 10,
-        specialFactor: 1.5
-      }),
-      monster: new Actor({
-        life: 100,
-        minAttack: 5,
-        maxAttack: 10,
-        specialFactor: 1.5
-      }),
-      log: new Logger()
+      game: 0,
+      log: 0,
+      human: 0,
+      monster: 0
     }
   },
 
@@ -55,18 +47,18 @@ export default {
     },
 
     attack () {
-      this.monster.normalAttack()
-      this.human.normalAttack()
+      this.monster.normalAttack('monster')
+      this.human.normalAttack('human')
     },
 
     specialAttack () {
-      this.monster.specialAttack()
-      this.human.specialAttack()
+      this.monster.specialAttack('monster')
+      this.human.specialAttack('human')
     },
 
     heal () {
       this.human.heal()
-      this.human.normalAttack()
+      this.human.normalAttack('human')
     },
 
     giveUp () {
@@ -78,6 +70,23 @@ export default {
     appHeader: HeaderComponent,
     appGame: GameComponent,
     appLog: LogComponent
+  },
+
+  created () {
+    this.game = new Game()
+    this.log = new Logger()
+    this.human = new Actor({
+      life: 100,
+      minAttack: 5,
+      maxAttack: 10,
+      specialFactor: 1.5
+    }, this.log)
+    this.monster = new Actor({
+      life: 100,
+      minAttack: 5,
+      maxAttack: 10,
+      specialFactor: 1.5
+    }, this.log)
   }
 }
 </script>
