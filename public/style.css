@@ -95,7 +95,11 @@ body {
     margin-bottom: 3rem; }
     @media (max-width: 600px) {
       .game__actions {
-        font-size: .1rem; } }
+        flex-wrap: wrap; }
+        .game__actions > button {
+          flex: 1 0 40%;
+          margin: 1rem;
+          font-size: 3rem; } }
 
 .btn {
   background-color: orangered;
