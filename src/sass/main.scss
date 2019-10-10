@@ -1,32 +1,79 @@
+@mixin respond($breakpoint) {
+    @if $breakpoint == tab-land {
+        @media (max-width: 1400px) { @content }
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 900px) { @content }
+    }
+
+    @if $breakpoint == phone {
+        @media (max-width: 600px) { @content }
+    }
+
+    @if $breakpoint == small-phone {
+        @media (max-width: 300px) { @content }
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 1800px) { @content }
+    }
+}
+
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
+
+    @include respond(tab-land) {
+        font-size: 55%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    @include respond(phone) {
+        font-size: 30%;
+    }
+
+    @include respond(big-desktop) {
+        font-size: 70%;
+    }
 }
 
 body {
-  box-sizing: border-box;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+    box-sizing: border-box;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
 }
 
 .header {
     padding: 6rem 0;
     text-align: center;
+
+    @include respond(phone) {
+        padding: 5rem 0;
+    }
     
     .heading-primary {
         &--main {
             display: block;
             font-size: 6rem;
             letter-spacing: 2rem;
+
+            @include respond(phone) {
+                font-size: 4rem;
+                letter-spacing: 1rem;
+            }
         }
         
         &--sub {
@@ -35,6 +82,11 @@ body {
             letter-spacing: 1.05rem;
             margin-left: -.5rem;
             font-weight: 200;
+
+            @include respond(phone) {
+                letter-spacing: .15rem;
+                font-weight: 400;
+            }
         }
     }
 }
@@ -42,11 +94,27 @@ body {
 .game {
     width: 50%;
     margin: 0 auto;
+
+    @include respond(tab-land) {
+        width: 80%;
+    }
+
+    @include respond(tab-port) {
+        width: 90%;
+    }
+
+    @include respond(phone) {
+        width: 95%;
+    }
     
     &__scores {
         display: flex;
         justify-content: space-evenly;
         margin-bottom: 3rem;
+
+        @include respond(phone) {
+            flex-direction: column;
+        }
 
         .actor {
             width: 100%;
@@ -55,9 +123,14 @@ body {
             text-align: center;
             color: #333;
             background-color: #eee;
+
+            @include respond(phone) {
+                width: 90%;
+                margin: 1.5rem auto;
+            }
             
             &__label {
-            background-color: #fff;
+                background-color: #fff;
             }
             
             &__life {
@@ -73,6 +146,10 @@ body {
         display: flex;
         justify-content: space-evenly;
         margin-bottom: 3rem;
+
+        @include respond(phone) {
+            font-size: .1rem;
+        }
     }
 }
 
@@ -85,7 +162,6 @@ body {
     border: none;
     border-radius: 3px;
     outline: none;
-
 
     &--animated {
         transition: all .2s;
@@ -128,7 +204,7 @@ body {
     background-color: #eee;
     font-size: 6rem;
     text-align: center;
-    padding: 8rem 24rem;
+    padding: 8rem 18rem;
     border-radius: 5px;
     border: 1px solid #333;
     box-shadow: 0 2rem 4rem #666;
@@ -136,6 +212,17 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include respond(tab-land) {
+        font-size: 5rem;
+        padding: 8rem 8rem;
+    }
+
+    @include respond(phone) {
+        font-size: 3.5rem;
+        padding: 6rem 4rem;
+        top: 30%;
+    }
 }
 
 .log {
@@ -144,6 +231,19 @@ body {
     margin: 0 auto;
     color: #333;
     font-size: 2rem;
+
+    @include respond(tab-land) {
+        width: 60%;
+    }
+
+    @include respond(tab-port) {
+        width: 80%;
+    }
+
+    @include respond(phone) {
+        width: 95%;
+        font-size: 2.6rem;
+    }
     
     &__message {
         margin-bottom: .5rem;
