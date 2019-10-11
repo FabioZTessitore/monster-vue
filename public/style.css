@@ -1,0 +1,183 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media (max-width: 1400px) {
+    html {
+      font-size: 55%; } }
+  @media (max-width: 900px) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 600px) {
+    html {
+      font-size: 30%; } }
+  @media (min-width: 1800px) {
+    html {
+      font-size: 70%; } }
+
+body {
+  box-sizing: border-box;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50; }
+
+.header {
+  padding: 6rem 0;
+  text-align: center; }
+  @media (max-width: 600px) {
+    .header {
+      padding: 5rem 0; } }
+  .header .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 2rem; }
+    @media (max-width: 600px) {
+      .header .heading-primary--main {
+        font-size: 5.5rem;
+        letter-spacing: 1.35rem; } }
+  .header .heading-primary--sub {
+    display: block;
+    font-size: 3rem;
+    letter-spacing: 1.05rem;
+    margin-left: -.5rem;
+    font-weight: 200; }
+    @media (max-width: 600px) {
+      .header .heading-primary--sub {
+        font-size: 4rem;
+        letter-spacing: .15rem;
+        font-weight: 400; } }
+
+.game {
+  width: 50%;
+  margin: 0 auto; }
+  @media (max-width: 1400px) {
+    .game {
+      width: 80%; } }
+  @media (max-width: 900px) {
+    .game {
+      width: 90%; } }
+  @media (max-width: 600px) {
+    .game {
+      width: 95%; } }
+  .game__scores {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem; }
+    @media (max-width: 600px) {
+      .game__scores {
+        flex-direction: column; } }
+    .game__scores .actor {
+      width: 100%;
+      margin: 3rem;
+      font-size: 4rem;
+      text-align: center;
+      color: #333;
+      background-color: #eee; }
+      @media (max-width: 600px) {
+        .game__scores .actor {
+          width: 90%;
+          margin: 1.5rem auto; } }
+      .game__scores .actor__label {
+        background-color: #fff; }
+      .game__scores .actor__life {
+        background-color: #8080f5;
+        padding: 2rem;
+        width: 100%;
+        transition: all .2s; }
+  .game__actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem; }
+    @media (max-width: 600px) {
+      .game__actions {
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 2rem auto; }
+        .game__actions > button {
+          flex: 1 0 40%;
+          margin: 1rem;
+          font-size: 2.5rem; } }
+
+.btn {
+  background-color: orangered;
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 3px;
+  outline: none; }
+  .btn--animated {
+    transition: all .2s; }
+    .btn--animated:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1rem 2rem #888; }
+    .btn--animated:active {
+      transform: translateY(-1px);
+      box-shadow: 0 .5rem 1rem #888; }
+  .btn--primary {
+    background-color: #2f7caf;
+    color: #eee; }
+  .btn--accent {
+    background-color: #dc2ee2;
+    color: #eee; }
+  .btn--warning {
+    background-color: #df7015;
+    color: #eee; }
+  .btn--danger {
+    background-color: orangered;
+    color: #eee; }
+
+.game-status {
+  margin: 0 auto;
+  z-index: 1;
+  background-color: #eee;
+  font-size: 6rem;
+  text-align: center;
+  padding: 8rem 18rem;
+  border-radius: 5px;
+  border: 1px solid #333;
+  box-shadow: 0 2rem 4rem #666;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  @media (max-width: 1400px) {
+    .game-status {
+      font-size: 5rem;
+      padding: 8rem 8rem; } }
+  @media (max-width: 600px) {
+    .game-status {
+      font-size: 3.5rem;
+      padding: 6rem 4rem;
+      top: 30%; } }
+
+.log {
+  background-color: #eee;
+  width: 40%;
+  margin: 0 auto;
+  color: #333;
+  font-size: 2rem; }
+  @media (max-width: 1400px) {
+    .log {
+      width: 60%; } }
+  @media (max-width: 900px) {
+    .log {
+      width: 80%; } }
+  @media (max-width: 600px) {
+    .log {
+      width: 95%;
+      font-size: 2.6rem; } }
+  .log__message {
+    margin-bottom: .5rem;
+    padding: 1rem; }
+  .log--Human {
+    background-color: #dfc0c0; }
+  .log--Monster {
+    background-color: #b5b5d3; }
