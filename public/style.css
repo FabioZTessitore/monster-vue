@@ -39,8 +39,8 @@ body {
     letter-spacing: 2rem; }
     @media (max-width: 600px) {
       .header .heading-primary--main {
-        font-size: 4rem;
-        letter-spacing: 1rem; } }
+        font-size: 5.5rem;
+        letter-spacing: 1.35rem; } }
   .header .heading-primary--sub {
     display: block;
     font-size: 3rem;
@@ -49,6 +49,7 @@ body {
     font-weight: 200; }
     @media (max-width: 600px) {
       .header .heading-primary--sub {
+        font-size: 4rem;
         letter-spacing: .15rem;
         font-weight: 400; } }
 
@@ -95,11 +96,13 @@ body {
     margin-bottom: 3rem; }
     @media (max-width: 600px) {
       .game__actions {
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 2rem auto; }
         .game__actions > button {
           flex: 1 0 40%;
           margin: 1rem;
-          font-size: 3rem; } }
+          font-size: 2.5rem; } }
 
 .btn {
   background-color: orangered;
