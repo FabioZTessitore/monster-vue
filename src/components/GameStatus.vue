@@ -23,21 +23,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.game-status {
-    margin: 0 auto;
-    z-index: 1;
-    background-color: #eee;
-    font-size: 6rem;
-    text-align: center;
-    padding: 8rem 24rem;
-    border-radius: 5px;
-    border: 1px solid #333;
-    box-shadow: 0 2rem 4rem #666;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-</style>
