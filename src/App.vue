@@ -76,13 +76,11 @@ export default {
 
     giveUp () {
       this.game.giveup()
-      this.game.stop()
     },
 
     checkWin () {
       if (this.monster.life <= 0) {
         this.game.win()
-        this.game.stop()
         return true
       }
     },
@@ -90,7 +88,6 @@ export default {
     checkLost () {
       if (this.human.life <= 0) {
         this.game.lost()
-        this.game.stop()
         return true
       }
     },

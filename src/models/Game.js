@@ -15,14 +15,17 @@ class Game {
 
     win () {
         this.status = 'win'
+        this.stop()
     }
 
     lost () {
         this.status = 'lost'
+        this.stop()
     }
 
     giveup () {
         this.status = 'giveup'
+        this.stop()
     }
 }
 
